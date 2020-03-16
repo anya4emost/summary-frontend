@@ -2,7 +2,7 @@ const path = require('path');//пакет, вшитый в ноду
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.tsx',//точкпа входа в приложение для вебпака
+    entry: './src/index.tsx',//точка входа в приложение для вебпака
     output: {
         filename: 'main.js',// название собранного js
         path: path.resolve(__dirname, 'dist'),//и место, где он будет лежать

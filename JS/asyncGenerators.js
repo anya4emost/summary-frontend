@@ -18,7 +18,7 @@ async function anonumous() {
     }
 }
 
-anonumous();
+//anonumous();
 
 
 // ниже 2 идентиичные записи
@@ -54,18 +54,19 @@ async function anonumous2() {
     }
 }
 
-anonumous2();
-
+//anonumous2();
+/**
 д/з
 1. завести учебный репозиторий с описанием
-2. Любимый Москва, [12.03.20 09:24]
-/**
+2. задача
  Надо реализовать асинхронный итератор, выводящий число от 1 до 5 каждую секунду
 
  let range = {
   from: 1,
   to: 5,
  };
+
+ let range = [1,2,3,4,5]
 
  (async () => {
    for await (let value of range) { // (4)
@@ -74,4 +75,34 @@ anonumous2();
  })();
 
  */
+
+let rangeIterator = {
+
+    [Symbol.asyncIterator]() {
+        return {
+            counter: 0,
+            async next() {
+                if (this.counter < 5) {
+                    await getPromise();
+                    this.counter++;
+                    return {value: this.counter, done: false};
+                }
+                return {value: undefined, done: true};
+            }
+        }
+    }
+};
+
+async function anonumous3() {
+    for await (let item of rangeIterator) {
+        console.log('rangeIterator', item);
+    }
+}
+
+anonumous3();
+
+
+
+/**
 3. прочитать в js.ru про итераторы и symbol,  и рассказать учителю разницу
+ **/
