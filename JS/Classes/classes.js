@@ -1,12 +1,12 @@
 class A {
     static b = 5;// нельзя переопределить
 
-    static staticMethod(){
+    static staticMethod() {
         console.log(this.b); // 5
         console.log(A.b);    // 5
     }
 
-    myMethod(){
+    myMethod() {
         console.log(this.b);  // undefined
         console.log(A.b);     // 5
     }
@@ -17,9 +17,19 @@ A.staticMethod();
 instance.myMethod();
 
 
-статический метод можно вызвать извне, но нельзя вызвать у экземпляра класса
+статический
+метод
+можно
+вызвать
+извне, но
+нельзя
+вызвать
+у
+экземпляра
+класса
 
-Это как
+Это
+как
 
 function f() {
 
@@ -27,12 +37,19 @@ function f() {
 
 f.t = 5;
 
- у инстанса нет prototype, есть __proto__
- prototype есть у функции-конструктора
+у
+инстанса
+нет
+prototype, есть
+__proto__
+prototype
+есть
+у
+функции - конструктора
 
 
 class B {
-    method(){
+    method() {
         console.log('base class method');
     }
 }
@@ -52,8 +69,6 @@ const instance = new A();
 instance.myMethod();
 
 
-
-
 class B {
     b;
 
@@ -62,7 +77,7 @@ class B {
         this.b = b;
     }
 
-    method(){
+    method() {
         console.log('base class method');
     }
 }
@@ -85,7 +100,7 @@ class A extends B {
     }
 }
 
-const instance = new A(1,2);
+const instance = new A(1, 2);
 instance.myMethod();
 
 
@@ -115,25 +130,71 @@ delete C.prototype.t
 delete instance2.__proto__.t
 
 
-a= {
-    t:5
+a = {
+    t: 5
 
 }
 
-instance={
-    t:10
+instance = {
+    t: 10
 }
 
 
-instance2={
-    t:5
+instance2 = {
+    t: 5
 }
 
 
+class Telephone {
+    model;
+    size;
+    color;
+
+    constructor(model, size, color) {
+        this.model = model;
+        this.size = size;
+        this.color = color;
+    }
+}
+
+const samsung= new Telephone('galaxyS10', 'big', 'grey');
+console.log('samsung', samsung);
 
 
+class Car {
+    color;
+    size;
+    numberOfWeehls;
+    
+    constructor(color, size, numberOfWeehls){
+        this.color = color;
+        this.size = size;
+        this.numberOfWeehls = numberOfWeehls
+    }
+    
+    run(){
+        console.log('I am running');
+    }
+}
+
+const audi = new Car('red', 'small', 4);
+audi.run();
+console.log('audi', audi);
 
 
+const pseudoArrow = (a, b, c) => {
+    console.log('args', arguments);
+    return a+b+c
+};
 
-Читать классы
+function pseudo(a, b, c){
+    console.log('args', arguments);
+    return a+b+c
+}
+
+pseudoArrow(1, 2, 3);
+
+
+Читать
+классы
 
